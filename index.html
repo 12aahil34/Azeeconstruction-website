@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AZee Construction in Kannur, Kerala. House construction, civil contracts, renovation and stone crusher services.">
+<title>AZee Construction | Kannur, Kerala</title>
+
+<style>
+:root {
+  --dark: #172020;
+  --gold: #d6a64f;
+  --cream: #f6f5f1;
+  --muted: #6c7270;
+  --white: #fff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: 90%; max-width: 1160px; margin: auto; }
+section { padding: 76px 0; }
+.section-title { font-size: clamp(30px, 4vw, 44px); line-height: 1.15; margin: 12px 0 18px; }
+.intro { color: var(--muted); max-width: 720px; margin: 0 0 32px; }
+.eyebrow { color: #a67828; font-size: 12px; font-weight: bold; letter-spacing: 2.5px; text-transform: uppercase; }
+.btn {
+  display: inline-block; border: 0; border-radius: 3px;
+  padding: 13px 19px; background: var(--gold); color: #171e20;
+  font-weight: bold; cursor: pointer; font: inherit; font-weight: bold;
+}
+.btn:hover { background: #e9bf73; }
+.btn-outline { background: transparent; color: white; border: 1px solid white; }
+
+/* HEADER */
+header {
+  position: sticky; top: 0; z-index: 20;
+  background: rgb(238, 232, 232); border-bottom: 1px solid #e5e3dc;
+}
+nav { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.logo { font-size: 25px; font-weight: 800; line-height: 1.1; }
+.logo span { color: #b88326; }
+.logo small { display: block; font-size: 10px; letter-spacing: 4px; }
+.navlinks { display: flex; align-items: center; gap: 20px; font-size: 14px; }
+
+/* HOMEPAGE VIDEO */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 540px; padding: 115px 0 100px;
+  background: #172020; color: white;
+}
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -2;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(15,23,24,.93), rgba(15,23,24,.38));
+  pointer-events: none;
+}
+.hero .container { position: relative; }
+.hero .eyebrow { color: var(--gold); }
+.hero h1 { max-width: 760px; font-size: clamp(42px, 6vw, 72px); line-height: 1.08; margin: 18px 0; }
+.hero p { max-width: 650px; color: #e2e7e4; font-size: 18px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* STATS */
+.stats { background: white; padding: 28px 0; }
+.statgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.stat strong { display: block; font-size: 30px; }
+.stat span { color: var(--muted); font-size: 14px; }
+
+/* SERVICES */
+.services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.card { background: white; border: 1px solid #e5e3dc; }
+.card img { display: block; width: 100%; height: 190px; object-fit: cover; }
+.card-content { padding: 18px; }
+.card h3 { margin: 0 0 8px; }
+.card p { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+
+/* ABOUT */
+.about { background: white; }
+.about-grid, .crusher-grid, .contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center;
+}
+.about-grid > img, .crusher-grid > img {
+  width: 100%; min-height: 300px; object-fit: cover;
+}
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+.checks div::before { content: "✓ "; color: #a67828; font-weight: bold; }
+
+/* PROJECT PORTFOLIO */
+.projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.project { background: white; border: 1px solid #e5e3dc; overflow: hidden; }
+.project img { width: 100%; height: 220px; display: block; object-fit: cover; }
+.project-content { padding: 18px; }
+.project small { color: #9c701e; font-weight: bold; text-transform: uppercase; }
+.project h3 { margin: 8px 0; }
+.project p { color: var(--muted); font-size: 14px; }
+
+/* BEFORE AND AFTER VIDEO SLIDER */
+.video-compare {
+  --split: 50%;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  isolation: isolate;
+  background: #172020;
+  touch-action: pan-y;
+}
+.compare-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.compare-before { z-index: 0; }
+.compare-after-clip {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--split);
+  overflow: hidden;
+  z-index: 1;
+}
+.compare-after {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+.compare-label {
+  position: absolute; top: 15px; z-index: 3;
+  padding: 7px 12px; background: rgba(0,0,0,.72);
+  color: white; font-size: 11px; font-weight: bold;
+  letter-spacing: 1.5px; pointer-events: none;
+}
+.label-before { left: 15px; }
+.label-after { right: 15px; }
+.compare-divider {
+  position: absolute; top: 0; bottom: 0;
+  left: var(--split); width: 3px;
+  background: white; transform: translateX(-50%);
+  z-index: 2; pointer-events: none;
+}
+.compare-handle {
+  position: absolute; left: 50%; top: 50%;
+  width: 46px; height: 46px; border: 2px solid white;
+  border-radius: 50%; background: var(--gold); color: var(--dark);
+  transform: translate(-50%, -50%);
+  display: grid; place-items: center; font-size: 23px;
+}
+.compare-range {
+  position: absolute; inset: 0; z-index: 4;
+  width: 100%; height: 100%; margin: 0;
+  opacity: 0; cursor: ew-resize;
+}
+.compare-range:focus-visible {
+  opacity: .18; outline: 3px solid var(--gold); outline-offset: -4px;
+}
+.video-caption { margin-top: 18px; }
+.video-caption p { color: var(--muted); }
+
+/* STONE CRUSHER */
+.crusher { background: var(--dark); color: white; }
+.crusher p { color: #d7ddda; }
+
+/* CONTACT */
+.contact { background: white; }
+.contact-info p { margin: 18px 0; }
+.contact-info a { color: #93671b; font-weight: bold; }
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+input, select, textarea {
+  width: 100%; padding: 12px; border: 1px solid #d9d9d2;
+  border-radius: 3px; font: inherit; background: #fcfcfa;
+}
+textarea { min-height: 120px; resize: vertical; }
+.full { grid-column: 1 / -1; }
+
+footer { background: #111718; color: white; padding: 32px 0; }
+footer .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+footer p { color: #c5ccca; font-size: 13px; }
+
+@media (max-width: 850px) {
+  .services { grid-template-columns: repeat(2, 1fr); }
+  .projects { grid-template-columns: repeat(2, 1fr); }
+  .about-grid, .crusher-grid, .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  section { padding: 52px 0; }
+  .hero { min-height: 450px; padding: 75px 0; }
+  .navlinks { gap: 8px; }
+  .navlinks a:not(.btn) { display: none; }
+  .statgrid { grid-template-columns: repeat(2, 1fr); }
+  .services, .projects, form { grid-template-columns: 1fr; }
+  .checks { grid-template-columns: 1fr; }
+  .full { grid-column: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">AZee<span></span><small>CONSTRUCTION</small></a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#crusher">Crusher</a>
+      <a class="btn" href="https://wa.me/919946623341" target="_blank" rel="noopener">Get a Quote</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+         poster="images/construction-cover.jpg" aria-hidden="true">
+    <source src="hero-construction.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="eyebrow">Construction · Civil Works · Renovation</div>
+    <h1>Building Dreams.<br>Creating Value.</h1>
+    <p>25+ years of experience in residential construction, building contracts, renovation and civil works in Kannur, Kerala.</p>
+    <div class="actions">
+      <a class="btn" href="#contact">Discuss Your Project ↗</a>
+      <a class="btn btn-outline" href="#projects">Explore Our Work</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container statgrid">
+    <div class="stat"><strong>25+</strong><span>Years of Experience</span></div>
+    <div class="stat"><strong>100+</strong><span>Completed Projects</span></div>
+    <div class="stat"><strong>10+</strong><span>Ongoing Projects</span></div>
+    <div class="stat"><strong>Kannur</strong><span>Kerala, India</span></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="eyebrow">What We Do</div>
+    <h2 class="section-title">Construction solutions built around you.</h2>
+    <p class="intro">From a new family home to renovation and civil contracting, we help bring your construction plans to life.</p>
+    <div class="services">
+      <article class="card">
+        <img src="C:\Users\VICTUS\Downloads\WhatsApp Image 2026-10-29 at 3.01.14 PM.jpeg" alt="Residential house">
+        <div class="card-content"><h3>House Construction</h3><p>Residential homes and complete construction projects.</p></div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Building">
+        <div class="card-content"><h3>Building Contracts</h3><p>Building contracts and civil construction work.</p></div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Modern home">
+        <div class="card-content"><h3>Renovation</h3><p>Home improvements, extensions and remodelling.</p></div>
+      </article>
+      <article class="card">
+        <img src="C:\Users\VICTUS\Downloads\WhatsApp Image 2026-10-29 at 3.06.48 PM.jpeg" alt="Construction site">
+        <div class="card-content"><h3>Civil & Site Works</h3><p>Site preparation and civil works for projects.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="Residential architecture">
+    <div>
+      <div class="eyebrow">About AZee Construction</div>
+      <h2 class="section-title">Experience you can build on.</h2>
+      <p>AZee Construction is a construction business based in Kannur, Kerala, with 25+years of industry experience.</p>
+      <p>We undertake residential construction, complete construction contracts, civil works and renovation.</p>
+      <div class="checks">
+        <div>25+ years of experience</div><div>100+ completed projects</div>
+        <div>10+ ongoing projects</div><div>Kannur, Kerala</div>
+      </div>
+      <a class="btn" href="#contact">Talk to Us</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="eyebrow">Our Portfolio</div>
+    <h2 class="section-title">Our work. Our commitment.</h2>
+    <p class="intro">Replace these sample images and descriptions with photographs and details of your actual projects.</p>
+    <div class="projects">
+      <article class="project">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Sample house">
+        <div class="project-content"><small>Completed Project</small><h3>Residential Construction</h3><p>Add the real project location and year.</p></div>
+      </article>
+      <article class="project">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80" alt="Sample home">
+        <div class="project-content"><small>Completed Project</small><h3>Home Renovation</h3><p>Add details of the actual renovation work.</p></div>
+      </article>
+      <article class="project">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Sample building site">
+        <div class="project-content"><small>Ongoing Project</small><h3>Building Works</h3><p>Add the real location and project stage.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE AND AFTER VIDEO SLIDER -->
+<section id="before-after">
+  <div class="container">
+    <div class="eyebrow">The AZee Difference</div>
+    <h2 class="section-title">Watch the Transformation.</h2>
+    <p class="intro">Drag the centre handle to compare the before and after videos.</p>
+
+    <div class="video-compare" id="videoCompare">
+      <video class="compare-video compare-before"
+             autoplay muted loop playsinline preload="auto">
+        <source src="before-video.mp4" type="video/mp4">
+      </video>
+
+      <div class="compare-after-clip">
+        <video class="compare-video compare-after"
+               autoplay muted loop playsinline preload="auto">
+          <source src="after-video.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <span class="compare-label label-before">AFTER</span>
+      <span class="compare-label label-after">BEFORE</span>
+
+      <div class="compare-divider">
+        <span class="compare-handle">↔</span>
+      </div>
+
+      <input class="compare-range" type="range" min="0" max="100"
+             value="50" aria-label="Drag to compare before and after videos">
+    </div>
+
+    <div class="video-caption">
+      <h3>Construction Transformation</h3>
+      <p>Actual project videos can be showcased here.</p>
+    </div>
+    <p id="videoStatus" role="status" style="font-size:13px;color:#686e6d"></p>
+  </div>
+</section>
+
+<section class="crusher" id="crusher">
+  <div class="container crusher-grid">
+    <div>
+      <div class="eyebrow">Our Business Division</div>
+      <h2 class="section-title">Stone Crusher & Aggregates</h2>
+      <p>Contact us to enquire about aggregate availability, material sizes, quantities and supply arrangements.</p>
+      <a class="btn" href="https://wa.me/919946623341?text=Hello%20AZee%20Construction%2C%20I%20would%20like%20to%20enquire%20about%20stone%20aggregates." target="_blank" rel="noopener">Enquire About Aggregates ↗</a>
+    </div>
+    <img src="C:\Users\VICTUS\Downloads\WhatsApp Image 2026-10-29 at 3.06.48 PM.jpeg" alt="Construction site">
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Contact Us</div>
+      <h2 class="section-title">Let's discuss your project.</h2>
+      <p>Planning a new home, renovation, building contract or aggregate order? Send us your requirements.</p>
+      <div class="contact-info">
+        <p><strong>Location</strong><br>Kannur, Kerala, India</p>
+        <p><strong>Phone</strong><br><a href="tel:+919946623341">99466 23341</a></p>
+        <p><strong>WhatsApp</strong><br><a href="https://wa.me/919946623341" target="_blank" rel="noopener">Chat with AZee Construction ↗</a></p>
+      </div>
+    </div>
+
+    <form id="enquiryForm">
+      <div><label for="name">Your Name *</label><input id="name" name="name" required placeholder="Your name"></div>
+      <div><label for="phone">Your Phone *</label><input id="phone" name="phone" type="tel" required placeholder="Your phone number"></div>
+      <div><label for="service">Service Required</label>
+        <select id="service" name="service">
+          <option>Complete House Construction</option>
+          <option>Building / Civil Contract</option>
+          <option>Renovation</option>
+          <option>Stone Aggregates</option>
+          <option>Other Enquiry</option>
+        </select>
+      </div>
+      <div><label for="location">Project Location</label><input id="location" name="location" placeholder="Town or area"></div>
+      <div class="full"><label for="message">Project Details *</label><textarea id="message" name="message" required placeholder="Describe your requirements"></textarea></div>
+      <div class="full">
+        <button class="btn" type="submit">Send Enquiry on WhatsApp ↗</button>
+        <p style="font-size:12px;color:#686e6d">WhatsApp opens with your message prepared. Press Send in WhatsApp to submit it.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div><div class="logo">AZee<span>.</span> CONSTRUCTION</div><p>Building Dreams. Creating Value.</p></div>
+    <div><strong>Kannur, Kerala, India</strong><p>Phone: 99466 23341</p><p>© <span id="year"></span> AZee Construction</p></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* WHATSAPP ENQUIRY FORM */
+document.getElementById("enquiryForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const form = new FormData(this);
+
+  const message =
+`AZee Construction Website Enquiry
+
+Name: ${form.get("name")}
+Phone: ${form.get("phone")}
+Service: ${form.get("service")}
+Location: ${form.get("location")}
+
+Project Details:
+${form.get("message")}`;
+
+  const url = "https://wa.me/919946623341?text=" + encodeURIComponent(message);
+  window.open(url, "_blank", "noopener");
+});
+
+/* BEFORE / AFTER VIDEO SLIDER */
+const compare = document.getElementById("videoCompare");
+
+if (compare) {
+  const beforeVideo = compare.querySelector(".compare-before");
+  const afterClip = compare.querySelector(".compare-after-clip");
+  const afterVideo = compare.querySelector(".compare-after");
+  const range = compare.querySelector(".compare-range");
+  const status = document.getElementById("videoStatus");
+
+  function resizeComparison() {
+    afterVideo.style.width = compare.clientWidth + "px";
+    afterVideo.style.height = compare.clientHeight + "px";
+  }
+
+  function updateComparison() {
+    compare.style.setProperty("--split", range.value + "%");
+  }
+
+  range.addEventListener("input", updateComparison);
+  window.addEventListener("resize", resizeComparison);
+
+  /* Keep both clips at approximately the same playback time. */
+  let syncing = false;
+
+  beforeVideo.addEventListener("timeupdate", () => {
+    if (!beforeVideo.duration || !afterVideo.duration || syncing) return;
+
+    const targetTime =
+      (beforeVideo.currentTime / beforeVideo.duration) * afterVideo.duration;
+
+    if (Math.abs(afterVideo.currentTime - targetTime) > 0.35) {
+      syncing = true;
+      afterVideo.currentTime = targetTime;
+      syncing = false;
+    }
+  });
+
+  beforeVideo.addEventListener("play", () => {
+    afterVideo.play().catch(() => {});
+  });
+
+  beforeVideo.addEventListener("pause", () => {
+    afterVideo.pause();
+  });
+
+  beforeVideo.addEventListener("error", () => {
+    status.textContent = "Check that before-video.mp4 exists and is a valid MP4 video.";
+  });
+
+  afterVideo.addEventListener("error", () => {
+    status.textContent = "Check that after-video.mp4 exists and is a valid MP4 video.";
+  });
+
+  resizeComparison();
+  updateComparison();
+
+  /* Start both videos together when the page is ready. */
+  Promise.all([
+    new Promise(resolve => {
+      if (beforeVideo.readyState >= 1) resolve();
+      else beforeVideo.addEventListener("loadedmetadata", resolve, { once: true });
+    }),
+    new Promise(resolve => {
+      if (afterVideo.readyState >= 1) resolve();
+      else afterVideo.addEventListener("loadedmetadata", resolve, { once: true });
+    })
+  ]).then(() => {
+    beforeVideo.currentTime = 0;
+    afterVideo.currentTime = 0;
+
+    Promise.all([
+      beforeVideo.play().catch(() => {}),
+      afterVideo.play().catch(() => {})
+    ]);
+  });
+}
+</script>
+</body>
+</html>
